@@ -9,7 +9,7 @@ module.exports.ready = function() {
       res()
     });
     client.on('message', message => {
-      if (message.author.bot) return 
+      if (message.author.bot || message.channel.id !== channelId) return 
       const msg = message.content.toUpperCase()
       if (msg.includes('YOU') && msg.includes('ALIVE')) {
         const possibilities = [
