@@ -19,5 +19,6 @@ services:
     environment:
       URLS: http://some-site.com,https://another-site/somewhere
       DISCORD_TOKEN: <your token from your discord bot>
+      CHANNEL_ID: <your discord channel to send msg>
     labels:
       com.centurylinklabs.watchtower.enable: "true"
