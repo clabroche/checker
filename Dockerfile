@@ -13,4 +13,4 @@ WORKDIR /checker
 RUN mkdir /checker/dist
 COPY --from=builder /checker .
 
-CMD ["node", "index"]
+CMD ["node", "src/index"]
