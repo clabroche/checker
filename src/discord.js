@@ -8,6 +8,19 @@ module.exports.ready = function() {
       console.log(`Logged in as ${client.user.tag}!`);
       res()
     });
+    client.on('message', message => {
+      if (message.author.bot) return 
+      const msg = message.content.toUpperCase()
+      if (msg.includes('YOU') && msg.includes('ALIVE')) {
+        const possibilities = [
+          "Yes I'm alive ! And you ?",
+          "Maybe, I'm just a robot, I don't know...",
+          "Yes, but i tell you each days !",
+          "You boring me with your questions.",
+        ]
+        message.channel.send(possibilities[Math.floor(Math.random() * possibilities.length)]);
+      }
+    });
     client.login(token);
   })
 }
