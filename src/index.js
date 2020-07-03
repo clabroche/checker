@@ -11,17 +11,19 @@ const http = require('./http')
 
 
 function requirements() {
-  const {DISCORD_TOKEN, URLS} = process.env
+  const {DISCORD_TOKEN, URLS, CHANNEL_ID} = process.env
   if(!DISCORD_TOKEN) {
     console.error('Please provide a DISCORD_TOKEN env')
     process.exit(1)
   }
-  if(!URLS) {
+  if (!URLS) {
     console.error('Please provide an URLS env. Example: URLS=http://some-site.com,https://another-site/somewhere')
     process.exit(1)
   }
-
-  
+  if (!CHANNEL_ID) {
+    console.error('Please provide an CHANNEL_ID env')
+    process.exit(1)
+  }
 }
 
 function launchHourly() {

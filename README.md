@@ -10,5 +10,5 @@ npm i @iryu54/checker
 
 ## Usage
 
-DISCORD_TOKEN=<your bot token\> URLS=http://some-site.com,https://another-site/somewhere checker
+DISCORD_TOKEN=<your bot token\> CHANNEL_ID=<channel to send msg> URLS=http://some-site.com,https://another-site/somewhere checker
 

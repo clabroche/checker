@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.env.DISCORD_TOKEN
-
+const channelId = process.env.CHANNEL_ID
 module.exports.ready = function() {
   return new Promise((res) => {
     client.on('ready', () => {
@@ -16,5 +16,5 @@ module.exports.ready = function() {
 module.exports.send = function (msg) {
   console.log('Send to Discord')
   // @ts-ignore
-  return client.channels.cache.get('728652496599384135').send(msg)
+  return client.channels.cache.get(channelId).send(msg)
 }
