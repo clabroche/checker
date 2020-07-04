@@ -4,10 +4,10 @@ const discord = require('./discord')
 const http = require('./http')
 
 ;(async _ => {
-  console.log(`Hello ! 
+  await discord.ready()
+  discord.send(`Hello ! 
 I'm starting in version ${require('../package.json').version}
 `)
-  await discord.ready()
   launchHourly()
   launchDaily()
 })()
