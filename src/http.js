@@ -4,11 +4,30 @@ const discord = require('./discord')
 
 const urlsToTests = process.env.URLS.split(',')
 
-async function launch() {
+async function launch(isFullReport) {
   const { success, failures } = await testUrls()
-  if (failures.length) {
-    await discord.send(failures.map(formatFail).join('\n'))
+  if(!isFullReport) {
+    if (failures.length) {
+      await discord.send(failures.map(formatFail).join('\n'))
+    }
+  } else {
+    await discord.send(formatFullReport(success, failures))
   }
+}
+
+function formatFullReport(success, failures) {
+  return `
+====== FULL REPORT ======
+=  Here is your http services :
+${urlsToTests.map(url => `= - ${url}`).join('\n')}
+=
+= Success services :
+${success.map(suc => `= - ${suc.status}: ${suc.url}`).join('\n')}
+=
+= Failed services :
+${failures.map(fail => `= - ${fail.status}: ${fail.url}`).join('\n')}
+========================
+`
 }
 
 
