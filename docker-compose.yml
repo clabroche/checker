@@ -17,7 +17,7 @@ services:
     hostname: checker
     restart: always
     volumes:
-      - urlToTests.json: src/urlToTests.json
+      - ./urlToTests.json:/checker/src/urlToTests.json
     environment:
       URLS: http://some-site.com,https://another-site/somewhere
       DISCORD_TOKEN: <your token from your discord bot>
