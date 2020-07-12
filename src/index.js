@@ -1,5 +1,6 @@
 #!/bin/env node
 requirements()
+const Discord = require('discord.js');
 const discord = require('./discord')
 const http = require('./http')
 
@@ -8,10 +9,14 @@ const http = require('./http')
   discord.send(`Hello ! 
 I'm starting in version ${require('../package.json').version}
 `)
-  launchHourly()
-  launchDaily()
+await test()
+launchHourly()
+launchDaily()
 })()
 
+async function test() {
+
+}
 
 function requirements() {
   const {DISCORD_TOKEN, URLS, CHANNEL_ID} = process.env
